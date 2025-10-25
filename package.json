@@ -27,7 +27,10 @@
 		"release": "release-it"
 	},
 	"lint-staged": {
-		"*.{ts,js,json,md}": [
+		"src/**/*.{ts,js,json}": [
+			"biome check --write"
+		],
+		"*.{ts,js,json}": [
 			"biome check --write"
 		]
 	},

@@ -84,7 +84,7 @@ export class ChalkLogger implements Logger {
 					return String(arg);
 				}
 			}
-			return arg;
+			return String(arg);
 		});
 
 		return `${prefix} ${formattedArgs.join(" ")}`;

@@ -1,6 +1,13 @@
 import { describe, expect, it } from "vitest";
 import { delay, retry, withTimeout } from "../utils/timeout";
 
+// Helper function to create a delayed promise
+const createDelayedResolve = (value: string, ms: number): Promise<string> => {
+	return new Promise((resolve) => {
+		setTimeout(() => resolve(value), ms);
+	});
+};
+
 describe("timeout utilities", () => {
 	describe("withTimeout", () => {
 		it("should resolve if promise completes before timeout", async () => {
@@ -10,12 +17,12 @@ describe("timeout utilities", () => {
 		});
 
 		it("should reject if promise takes longer than timeout", async () => {
-			const promise = new Promise((resolve) => setTimeout(() => resolve("too late"), 100));
+			const promise = createDelayedResolve("too late", 100);
 			await expect(withTimeout(promise, 50)).rejects.toThrow("Operation timed out");
 		});
 
 		it("should reject with custom error message", async () => {
-			const promise = new Promise((resolve) => setTimeout(() => resolve("too late"), 100));
+			const promise = createDelayedResolve("too late", 100);
 			const customError = new Error("Custom timeout");
 			await expect(withTimeout(promise, 50, customError)).rejects.toThrow("Custom timeout");
 		});

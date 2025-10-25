@@ -1,0 +1,84 @@
+{
+	"name": "typescript-cli-template",
+	"version": "1.0.0",
+	"description": "Template for building CLI applications using TypeScript",
+	"main": "dist/index.js",
+	"bin": {
+		"demo-cli": "./dist/index.js"
+	},
+	"scripts": {
+		"start": "node dist/index.js",
+		"build": "tsc",
+		"dev": "tsx src/index.ts",
+		"dev:watch": "tsx watch src/index.ts",
+		"lint": "biome check",
+		"lint:fix": "biome check --write",
+		"format": "biome format --write .",
+		"test": "vitest",
+		"test:ui": "vitest --ui",
+		"test:coverage": "vitest --coverage",
+		"clean": "rm -rf dist",
+		"prebuild": "pnpm clean",
+		"type-check": "tsc --noEmit",
+		"watch": "tsc --watch",
+		"prepublishOnly": "pnpm run build",
+		"prepare": "husky",
+		"release": "release-it"
+	},
+	"lint-staged": {
+		"*.{ts,js,json,md}": [
+			"biome check --write"
+		]
+	},
+	"keywords": [
+		"cli",
+		"devops",
+		"typescript",
+		"template",
+		"automation",
+		"commander",
+		"inquirer",
+		"chalk",
+		"biome",
+		"cli-template",
+		"typescript-template",
+		"starter-kit",
+		"boilerplate"
+	],
+	"author": "usarral",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/usarral/typescript-cli-template.git"
+	},
+	"bugs": {
+		"url": "https://github.com/usarral/typescript-cli-template/issues"
+	},
+	"homepage": "https://github.com/usarral/typescript-cli-template#readme",
+	"engines": {
+		"node": ">=18.0.0",
+		"pnpm": ">=8.0.0"
+	},
+	"packageManager": "pnpm@10.13.1",
+	"dependencies": {
+		"axios": "^1.12.2",
+		"chalk": "^5.6.2",
+		"commander": "^14.0.2",
+		"inquirer": "^12.10.0",
+		"zod": "^4.1.12"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.3.0",
+		"@commitlint/cli": "^20.1.0",
+		"@commitlint/config-conventional": "^20.0.0",
+		"@release-it/conventional-changelog": "^10.0.1",
+		"@types/node": "^24.9.1",
+		"@vitest/coverage-v8": "^4.0.3",
+		"husky": "^9.1.7",
+		"lint-staged": "^16.2.6",
+		"release-it": "^19.0.5",
+		"tsx": "^4.19.2",
+		"typescript": "^5.9.3",
+		"vitest": "^4.0.3"
+	}
+}

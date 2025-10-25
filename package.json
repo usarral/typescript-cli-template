@@ -60,7 +60,7 @@
 		"node": ">=18.0.0",
 		"pnpm": ">=8.0.0"
 	},
-	"packageManager": "pnpm@10.13.1",
+	"packageManager": "pnpm@10.19.0",
 	"dependencies": {
 		"axios": "^1.12.2",
 		"chalk": "^5.6.2",

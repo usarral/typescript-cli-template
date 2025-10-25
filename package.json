@@ -1,6 +1,7 @@
 {
 	"name": "typescript-cli-template",
 	"version": "1.0.0",
+	"type": "module",
 	"description": "Template for building CLI applications using TypeScript",
 	"main": "dist/index.js",
 	"bin": {
